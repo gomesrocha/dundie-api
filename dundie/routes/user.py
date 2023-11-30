@@ -1,14 +1,19 @@
 from typing import List
-from sqlalchemy.exc import IntegrityError
 
 from fastapi import APIRouter
 from fastapi.exceptions import HTTPException
+from sqlalchemy.exc import IntegrityError
 from sqlmodel import Session, select
 
+from dundie.auth import CanChangeUserPassword, SuperUser
 from dundie.db import ActiveSession
-from dundie.models.user import User, UserRequest, UserResponse, UserProfilePatchRequest, UserPasswordPatchRequest
-from dundie.auth import SuperUser, CanChangeUserPassword
-
+from dundie.models.user import (
+    User,
+    UserPasswordPatchRequest,
+    UserProfilePatchRequest,
+    UserRequest,
+    UserResponse,
+)
 
 router = APIRouter()
 
@@ -21,9 +26,7 @@ async def list_users(*, session: Session = ActiveSession):
 
 
 @router.get("/{username}/", response_model=UserResponse)
-async def get_user_by_username(
-    *, session: Session = ActiveSession, username: str
-):
+async def get_user_by_username(*, session: Session = ActiveSession, username: str):
     """Get user by username"""
     query = select(User).where(User.username == username)
     user = session.exec(query).first()
@@ -47,19 +50,20 @@ async def create_user(*, session: Session = ActiveSession, user: UserRequest):
     session.refresh(db_user)
     return db_user
 
+
 @router.patch("/{username}/", response_model=UserResponse)
 async def update_user(
     *,
     session: Session = ActiveSession,
     patch_data: UserProfilePatchRequest,
-#    current_user: User = AuthenticatedUser,
-    username: str
+    #    current_user: User = AuthenticatedUser,
+    username: str,
 ):
     user = session.exec(select(User).where(User.username == username)).first()
     if not user:
         raise HTTPException(status_code=404, detail="User not found")
-#    if user.id != current_user.id and not current_user.superuser:
-#        raise HTTPException(status_code=403, detail="You can only update your own profile")
+    #    if user.id != current_user.id and not current_user.superuser:
+    #        raise HTTPException(status_code=403, detail="You can only update your own profile")
 
     # Update
     user.avatar = patch_data.avatar
@@ -70,12 +74,13 @@ async def update_user(
     session.refresh(user)
     return user
 
+
 @router.post("/{username}/password/", response_model=UserResponse)
 async def change_password(
     *,
     session: Session = ActiveSession,
-    patch_data: UserPasswordPatchRequest, # pyright: ignore
-    user: User = CanChangeUserPassword # pyright: ignore
+    patch_data: UserPasswordPatchRequest,  # pyright: ignore
+    user: User = CanChangeUserPassword,  # pyright: ignore
 ):
     user.password = patch_data.hashed_password  # pyright: ignore
     session.add(user)

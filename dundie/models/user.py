@@ -1,9 +1,11 @@
 """User related data models"""
 from typing import Optional
+
 from fastapi import HTTPException, status
-from sqlmodel import Field, SQLModel
-from dundie.security import HashedPassword, get_password_hash
 from pydantic import BaseModel, root_validator
+from sqlmodel import Field, SQLModel
+
+from dundie.security import HashedPassword, get_password_hash
 
 
 class User(SQLModel, table=True):
@@ -21,8 +23,10 @@ class User(SQLModel, table=True):
 
     @property
     def superuser(self):
-        """"Users belonging to management dept are admins."""
+        """ "Users belonging to management dept are admins."""
         return self.dept == "management"
+
+
 class UserResponse(BaseModel):
     """Serializer for User Response"""
 
@@ -53,6 +57,7 @@ class UserRequest(BaseModel):
             values["username"] = generate_username(values["name"])
         return values
 
+
 class UserProfilePatchRequest(BaseModel):
     avatar: Optional[str] = None
     bio: Optional[str] = None
@@ -61,6 +66,7 @@ class UserProfilePatchRequest(BaseModel):
 def generate_username(name: str) -> str:
     """Generates a slug username from a name"""
     return name.lower().replace(" ", "-")
+
 
 class UserPasswordPatchRequest(BaseModel):
     password: str
@@ -71,8 +77,7 @@ class UserPasswordPatchRequest(BaseModel):
         """Checks if passwords match"""
         if values.get("password") != values.get("password_confirm"):
             raise HTTPException(
-                status_code=status.HTTP_400_BAD_REQUEST,
-                detail="Passwords do not match"
+                status_code=status.HTTP_400_BAD_REQUEST, detail="Passwords do not match"
             )
         return values
 

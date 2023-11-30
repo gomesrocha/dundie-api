@@ -1,7 +1,7 @@
 """Settings module"""
 import os
 
-from dynaconf import Dynaconf, Validator  
+from dynaconf import Dynaconf, Validator
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 

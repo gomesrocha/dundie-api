@@ -1,9 +1,9 @@
-from dundie.models.user import generate_username
-
 import typer
 from rich.console import Console
 from rich.table import Table
 from sqlmodel import Session, select
+
+from dundie.models.user import generate_username
 
 from .config import settings
 from .db import engine
@@ -26,9 +26,7 @@ def shell():
     try:
         from IPython import start_ipython
 
-        start_ipython(
-            argv=["--ipython-dir=/tmp", "--no-banner"], user_ns=_vars
-        )
+        start_ipython(argv=["--ipython-dir=/tmp", "--no-banner"], user_ns=_vars)
     except ImportError:
         import code
 
@@ -49,6 +47,7 @@ def user_list():
             table.add_row(*[getattr(user, field) for field in fields])
 
     Console().print(table)
+
 
 @main.command()
 def create_user(

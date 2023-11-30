@@ -1,7 +1,7 @@
 """Token based auth"""
 from datetime import datetime, timedelta
-from typing import Callable, Optional, Union
 from functools import partial
+from typing import Callable, Optional, Union
 
 from fastapi import Depends, HTTPException, Request, status
 from fastapi.security import OAuth2PasswordBearer
@@ -67,9 +67,7 @@ def create_access_token(
 create_refresh_token = partial(create_access_token, scope="refresh_token")
 
 
-def authenticate_user(
-    get_user: Callable, username: str, password: str
-) -> Union[User, bool]:
+def authenticate_user(get_user: Callable, username: str, password: str) -> Union[User, bool]:
     """Authenticate the user"""
     user = get_user(username)
     if not user:
@@ -87,9 +85,7 @@ def get_user(username) -> Optional[User]:
 
 
 def get_current_user(
-    token: str = Depends(oauth2_scheme),
-    request: Request = None,  # pyright: ignore
-    fresh=False
+    token: str = Depends(oauth2_scheme), request: Request = None, fresh=False  # pyright: ignore
 ) -> User:
     """Get current user authenticated"""
     credentials_exception = HTTPException(
@@ -107,9 +103,7 @@ def get_current_user(
 
     try:
         payload = jwt.decode(
-            token,
-            SECRET_KEY,  # pyright: ignore
-            algorithms=[ALGORITHM]  # pyright: ignore
+            token, SECRET_KEY, algorithms=[ALGORITHM]  # pyright: ignore  # pyright: ignore
         )
         username: str = payload.get("sub")  # pyright: ignore
 
@@ -129,6 +123,7 @@ def get_current_user(
 
 # FastAPI dependencies
 
+
 async def get_current_active_user(
     current_user: User = Depends(get_current_user),
 ) -> User:
@@ -144,17 +139,17 @@ async def validate_token(token: str = Depends(oauth2_scheme)) -> User:
     user = get_current_user(token=token)
     return user
 
+
 async def get_current_super_user(
     current_user: User = Depends(get_current_user),
 ) -> User:
     if not current_user.superuser:
-        raise HTTPException(
-            status_code=status.HTTP_403_FORBIDDEN, detail="Not a super user"
-        )
+        raise HTTPException(status_code=status.HTTP_403_FORBIDDEN, detail="Not a super user")
     return current_user
 
 
 SuperUser = Depends(get_current_super_user)
+
 
 async def get_user_if_change_password_is_allowed(
     *,
@@ -177,7 +172,7 @@ async def get_user_if_change_password_is_allowed(
         valid_pwd_reset_token = False
 
     try:
-        authenticated_user = get_current_user(token="", request=request)
+        authenticated_user = get_current_user(token, request=request)
     except HTTPException:
         authenticated_user = None
 
