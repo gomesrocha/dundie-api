@@ -52,4 +52,4 @@ Existem casos onde as tarefas precisam de um pouco mais de robustes e controles 
 neste caso usaremos um gerenciador de filas como Celery ou Python-RQ, mas isso veremos adiante.
 ```
 
-Com estas rotas agora já podemos ter um front-end integrado para a gestão de usuários, mas o nosso próximo passo será cuidar da API de transações --> 
+Com estas rotas agora já podemos ter um front-end integrado para a gestão de usuários, mas o nosso próximo passo será cuidar da API de transações -->

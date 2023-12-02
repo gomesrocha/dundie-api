@@ -1,7 +1,7 @@
 # Configurando SECRET_KEY
 
-Precisamos ser capazes de encryptar tokens e gerar hash para as senhas dos usuários 
-e para isso temos alguns requisitos, primeiro precisamos de uma chave secreta em nosso 
+Precisamos ser capazes de encryptar tokens e gerar hash para as senhas dos usuários
+e para isso temos alguns requisitos, primeiro precisamos de uma chave secreta em nosso
 arquivo de settings, esta chave será usada em nosso algoritmo de criptografia quando
 começarmos a gerar tokens.
 
@@ -17,9 +17,9 @@ ACCESS_TOKEN_EXPIRE_MINUTES = 30
 REFRESH_TOKEN_EXPIRE_MINUTES = 600
 ```
 
-Como explicado no próprio comentário do arquivo `default.toml`, vamos colocar uma secret key separada 
-no arquivo `.secrets.toml` na raiz do repositório, isso é recomendável pois podemos adicionar o 
-arquivo `.secrets.toml` ao `.gitignore` para que ele não seja enviado para o repositório e desta 
+Como explicado no próprio comentário do arquivo `default.toml`, vamos colocar uma secret key separada
+no arquivo `.secrets.toml` na raiz do repositório, isso é recomendável pois podemos adicionar o
+arquivo `.secrets.toml` ao `.gitignore` para que ele não seja enviado para o repositório e desta
 maneira evitamos expor a chave secreta.
 
 **CRIE** o arquivo `.secrets.toml` (na raiz do repositório)
@@ -35,7 +35,7 @@ SECRET_KEY = "ONLYFORDEVELOPMENT"
 ```admonish note "NOTA"
 Repare que estamos agora usando a seção `environment` e isso tem a ver
 com o modo como o dynaconf gerencia os settings, esses valores serão
-carregados apenas durante a execução em fase de desenvolvimento, em produção 
+carregados apenas durante a execução em fase de desenvolvimento, em produção
 o dynaconf carrega apenas valores das variáveis de ambiente (recomendado) ou
 de uma seção similar nomeada `[production]`.
 ```
@@ -62,7 +62,7 @@ esteja sempre presente antes do sistema inicializar.
 
 ```python
 # No topo faça o import de `Validator`
-from dynaconf import Dynaconf, Validator  
+from dynaconf import Dynaconf, Validator
 
 # No final adicione a validação
 

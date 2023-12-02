@@ -48,6 +48,7 @@ Please use the following link to reset your password:
 This link will expire in {expire} minutes.
 """
 
+
 def try_to_send_pwd_reset_email(email):
     """Given an email address sends email if user is found"""
     with Session(engine) as session:

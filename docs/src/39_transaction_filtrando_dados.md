@@ -3,12 +3,12 @@
 Agora que já podemos trocar pontos entre usuários vamos criar endpoints onde será possivel consultar
 as transações e saldos.
 
-- `POST /transaction/{username}/` (feito) - adiciona transação 
-- `GET /transaction/` - Lista todas as transações 
+- `POST /transaction/{username}/` (feito) - adiciona transação
+- `GET /transaction/` - Lista todas as transações
     - Se `superuser` exibe todas, caso contrário apenas as próprias.
     - permite filtros: `?from_user=username`, `?user=username`
     - permite ordenação: `?order_by=from_user,user,value,date`
-    - permite paginação: `?page=1&size=10` 
+    - permite paginação: `?page=1&size=10`
 
 
 Antes de criarmos o endpoint precisamos criar um model de saida, `TransactionResponse`
@@ -16,19 +16,19 @@ para evitar o retorno do próprio model do banco de dados e se fizermos isso em 
 
 ```diff
 - # !!!! Exemplo em dundie/models/transaction.py
-- from dundie.models.user import User   # <- CIRCULAR IMPORT 
+- from dundie.models.user import User   # <- CIRCULAR IMPORT
 ```
 
 Para contornar este problema de maneira simples, vamos agora criar um novo arquivo, desta forma isolamos o import e evitamos o import circular.
 
-> **OBS** Neste momento vamos colocar apenas o serializar para Transaction neste novo módulo 
-> mas futuramente podemos mover todos os serializers definidos em `models/user.py` e `models/transaction.py` 
+> **OBS** Neste momento vamos colocar apenas o serializar para Transaction neste novo módulo
+> mas futuramente podemos mover todos os serializers definidos em `models/user.py` e `models/transaction.py`
 > para este mesmo módulo também.
 
-Neste serializer vamos utilizar `root_validator` para criar campos que são calculados no 
+Neste serializer vamos utilizar `root_validator` para criar campos que são calculados no
 momento da serialização.
 
-**CRIE** o arquivo `dundie/models/serializers.py` 
+**CRIE** o arquivo `dundie/models/serializers.py`
 
 > VocÊ pode criar usando `touch dundie/models/serializers.py` ou usando seu IDE ou navegador de arquivos.
 
@@ -67,7 +67,7 @@ Podemos testar no shell com:
 
 ```console
 $ docker compose exec api dundie shell
-Auto imports: ['settings', 'engine', 'select', 'session', 'User', 
+Auto imports: ['settings', 'engine', 'select', 'session', 'User',
                'Transaction', 'Balance', 'add_transaction']
 
 In [1]: from dundie.models.serializers import TransactionResponse
@@ -76,12 +76,12 @@ In [2]: t = session.get(Transaction, 1)
 
 In [3]: TransactionResponse.parse_obj(t)
 Out[3]: TransactionResponse(
-    value=100, 
-    date=datetime.datetime(2023, 1, 6, 12, 21, 55, 30204), 
-    user='bruno-rocha', 
-    from_user='michael-scott', 
-    user_id=2, 
-    from_id=1, 
+    value=100,
+    date=datetime.datetime(2023, 1, 6, 12, 21, 55, 30204),
+    user='bruno-rocha',
+    from_user='michael-scott',
+    user_id=2,
+    from_id=1,
     id=1
 )
 ```
@@ -184,25 +184,25 @@ $ curl 'GET' -H 'Content-Type: application/json' \
 Repare que como usamos o plugin fastapi_pagination agora o formato da resposta está diferente contendo `items`, `total`, `page` e `size`
 ```
 
-## Revisão da API 
+## Revisão da API
 
 Agora que já temos bastante funcionalidade na API vamos revisar e identificar o que está faltando.
 
-### Auth 
+### Auth
 
-- POST /token - login via formulário para gerar acccess token 
+- POST /token - login via formulário para gerar acccess token
 - POST /refresh_token - Obter um novo token sem a necessidade de fazer login novamente
 
-### User 
+### User
 
 - GET /user/ -  Lista todos os usuários
 - GET /user/{username} - Lista um usuário específico
-- POST🔒 /user/ - Cria um novo usuário 
-- PATCH🔒 /user/{username} - Altera informações do usuário 
+- POST🔒 /user/ - Cria um novo usuário
+- PATCH🔒 /user/{username} - Altera informações do usuário
 - POST  /user/{username}/password - Altera a senha do usuário (?pwd_reset_token ou 🔒)
 - POST /user/pwd_reset_token/ - Solicita um token via email para resetar a senha (?email)
 
-### Transaction 
+### Transaction
 
 - POST🔒 /transaction/ - Cria uma nova transaction de `from_user para user`
 - GET🔒 /transaction/ - Lista transactions do usuário logado (ou todas em caso de superuser)

@@ -43,4 +43,4 @@ carregar variáveis do arquivo `default.toml` e em seguida dos arquivos
 `settings.toml` e `.secrets.toml` e que será possivel usar `DUNDIE_` como
 prefixo nas variáveis de ambiente para sobrescrever os valores.
 
-Agora já podemos acessar esses valores e criar a conexão com o banco de dados --> 
+Agora já podemos acessar esses valores e criar a conexão com o banco de dados -->

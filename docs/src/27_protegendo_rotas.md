@@ -4,7 +4,7 @@ Apenas super usuários terão permissão para criar novos usuários, portanto
 vamos proteger a view `POST /user/` com autenticação via **TOKEN**
 
 
-**EDITE** `dundie/auth.py` e adicione no final uma dependencia para 
+**EDITE** `dundie/auth.py` e adicione no final uma dependencia para
 garantir que o usuário autenticado é super usuário.
 
 ```python
@@ -21,8 +21,8 @@ async def get_current_super_user(
 SuperUser = Depends(get_current_super_user)
 ```
 
-Agora vamos usar essa dependencia para garantir o super usuário em nossa rota 
-**EDITE** `dundie/routes/user.py`  
+Agora vamos usar essa dependencia para garantir o super usuário em nossa rota
+**EDITE** `dundie/routes/user.py`
 
 No topo próximo a linha 9
 
@@ -48,7 +48,7 @@ Como adicionamos `dependencies=[SuperUser]` no roteamento e isso é o suficiente
 
 Ao tentar criar um usuário sem autenticar teremos agora um erro `HTTP_401_UNAUTHORIZED` e se o usuário autenticado não for um superuser termos o erro `HTTP_403_FORBIDDEN`
 
-Os requests vão precisar do token, portanto o usuário primeiro precisa pedir um token na URL `/token` e depois usar este token na requisição protegida 
+Os requests vão precisar do token, portanto o usuário primeiro precisa pedir um token na URL `/token` e depois usar este token na requisição protegida
 
 ```bash
 curl -X 'POST' \
@@ -64,4 +64,3 @@ curl -X 'POST' \
 }'
 
 ```
-

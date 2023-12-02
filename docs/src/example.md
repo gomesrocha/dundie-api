@@ -67,5 +67,3 @@ A plain note.
 ```admonish quote
 A plain note.
 ```
-
-

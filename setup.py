@@ -1,6 +1,3 @@
 from setuptools import setup
 
-setup(
-    name="dundie"
-)
-
+setup(name="dundie")

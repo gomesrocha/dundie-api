@@ -4,7 +4,7 @@ Ambiente Dev é para fins de programação o conjunto de ferramentas, biblioteca
 
 ## Preparando o Ambiente
 
-### Opção 1: Rodando no seu computador local 
+### Opção 1: Rodando no seu computador local
 
 Dentro da pasta `dundie-api` e crie um ambiente virtual.
 
@@ -38,7 +38,7 @@ Com o ambiente pronto podemos agora instalar as dependências básicas do projet
 
 Confirme que o arquivo já contém a lista de todas as ferramentas que usaremos para fins de desenvolvimento e debugging, confira o conteúdo do arquivo abrindo em seu editor ou através do comando `cat` no terminal Linux.
 
-```console 
+```console
 $ cat requirements-dev.txt
 
 ipython         # terminal
@@ -73,4 +73,3 @@ do editor de código
 ```admonish info
 Os metadados de instalação estão definidos no arquivo `pyproject.toml`, neste arquivo estão listados os atributos do projeto, os arquivos e módulos que fazem parte, a versão e as dependencias.
 ```
-

@@ -50,7 +50,7 @@ current_user.supersuser is True
 Query("?pwd_reset_token") is valid
 ```
 
-Vamos implementar a lógica acima como uma dependencia do FastAPI, usaremos esta dependencia na rota 
+Vamos implementar a lógica acima como uma dependencia do FastAPI, usaremos esta dependencia na rota
 de alteração de senha e a dependência irá garantir que pelo menos um dos requisitos seja satisfeito.
 
 **EDITE** `dundie/auth.py` e no final:
@@ -128,7 +128,7 @@ Agora podemos testar a rota de alteração de senha, autenticando com o token v�
 ```bash
 curl -X 'POST' \
  -H 'Authorization: Bearer ...' \
- -H 'Content-Type: application/json' 
+ -H 'Content-Type: application/json'
  --data-raw '{"password": "boss1234", "password_confirm": "boss1234"}' \
  -k 'http://localhost:8000/user/michael-scott/password/'
 ```
@@ -137,4 +137,4 @@ O usuário `michael-scott` sendo um superuser, também tem permissão para alter
 
 Agora imagine que um usuário esqueceu a própria senha, mas ao invés de pedir para o gerente ele quer ele
 mesmo alterar a senha, para isso vamos criar um endpoint para enviar um email com um token válido para
-alterar a senha e acessar o mesmo endpoint. --> 
+alterar a senha e acessar o mesmo endpoint. -->

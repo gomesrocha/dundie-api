@@ -11,7 +11,7 @@
   - Para usar a API será necessário uma chamada `GET /token data={username, password}` e todas as chamadas subsequentes precisarão do token informado nos `HEADERS`.
 - O usuário pode requisitar um token para alteração de senha
 
-## Transações 
+## Transações
 
 - Transações não podem ser deletadas ou canceladas, cada transação
   é um item no histórico da conta do usuário em questão.
@@ -24,7 +24,7 @@ Endpoints:
 - `POST /transaction/username/` - Registra uma transação para um usuário
   - Acesso: `Geral`
   - Validação: O usuário autenticado é o `from_id` da transação e deve ter saldo suficiente.
-- `GET /transaction/username/` - Retorna as transações de um usuário incluindo seu `balance` (saldo todal) 
+- `GET /transaction/username/` - Retorna as transações de um usuário incluindo seu `balance` (saldo todal)
   - Acesso: `Manager` ou `username == current_user`
 - `GET /transaction/` - Retorna todas as transações
 
@@ -36,7 +36,7 @@ Endpoints:
 
 ### Fase 1
 
-- 1 Serviço de API 
+- 1 Serviço de API
 - 1 Serviço de Banco de Dados
 
 ```mermaid

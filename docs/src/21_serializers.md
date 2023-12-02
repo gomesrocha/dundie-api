@@ -12,8 +12,8 @@ através da CLI, teremos as seguintes rotas:
 A primeira coisa que precisamos é definir serializers, que são models
 intermediários usados para serializar e de-serializar dados de entrada e saída
 da API e eles são necessários pois não queremos export o model do
-banco de dados diretamente na API e também queremos a possibilidade de serializar 
-campos opcionais dependendo do nível de acesso do usuário, 
+banco de dados diretamente na API e também queremos a possibilidade de serializar
+campos opcionais dependendo do nível de acesso do usuário,
 por exemplo, admins poderão ver mais campos que usuários regulares.
 
 **EDITE** `dundie/models/user.py`
@@ -61,7 +61,7 @@ class UserRequest(BaseModel):
 Podemos testar os serializers em nosso shell só para ter certeza do funcionamento correto.
 
 ```python
-$ docker compose exec api dundie shell    
+$ docker compose exec api dundie shell
 Auto imports: ['settings', 'engine', 'select', 'session', 'User']
 
 In [1]: from dundie.models.user import UserRequest
@@ -89,12 +89,12 @@ In [7]: session.commit()
 In [12]: session.exec(select(User).where(User.username=="bruno-rocha")).first()
 
 Out[12]: User(bio=None, email='bruno@dm.com', username='bruno-rocha', name='Bruno Rocha', currency=
-'USD', id=2, avatar=None, password='$2b$12$v/1h3sKAFCOuiKuXsThAXOBuny46TPYzKyoaBVisCFHlwaxPlKWpu', 
+'USD', id=2, avatar=None, password='$2b$12$v/1h3sKAFCOuiKuXsThAXOBuny46TPYzKyoaBVisCFHlwaxPlKWpu',
 dept='Sales')
 
 ```
 
-Como pode ver acima podemos criar usuários via API e serializar usando o `UserRequest` e só a partir dele criar a instancia de `User`  que iremos salvar no banco de dados.  
+Como pode ver acima podemos criar usuários via API e serializar usando o `UserRequest` e só a partir dele criar a instancia de `User`  que iremos salvar no banco de dados.
 
 E da mesma forma podemos fazer o caminho inverso, serializando do banco de dados para a API em JSON.
 

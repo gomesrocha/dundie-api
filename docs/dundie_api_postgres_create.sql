@@ -43,7 +43,3 @@ ALTER TABLE "balance" ADD CONSTRAINT "balance_fk0" FOREIGN KEY ("user_id") REFER
 
 ALTER TABLE "transaction" ADD CONSTRAINT "transaction_fk0" FOREIGN KEY ("user_id") REFERENCES "user"("id");
 ALTER TABLE "transaction" ADD CONSTRAINT "transaction_fk1" FOREIGN KEY ("from_id") REFERENCES "user"("id");
-
-
-
-

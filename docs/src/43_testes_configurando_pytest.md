@@ -2,7 +2,7 @@
 
 Para os tests vamos utilizar o Pytest para testar algumas rotas da API,
 o Pytest pode ser configurado através de hooks e fixtures que ficam no
-arquivo `tests/conftest.py`, fixtures são geralmente funções que 
+arquivo `tests/conftest.py`, fixtures são geralmente funções que
 provêm funcionalidades que serão injetadas (via injeção de dependencias)
 em cada teste que escrevermos, portanto se queremos testar multiplos
 usuários, começamos criando fixtures que preparam clientes HTTP autenticados
@@ -11,7 +11,7 @@ com os tokens de cada um desses usuários.
 Uma outra coisa importante que faremos é apontar o banco de dados
 para o banco de dados de teste que iniciamos no script `test.sh`
 
-# Setup 
+# Setup
 
 01. Obter um token para o usuário admin
 00. Criar usuário1
@@ -19,7 +19,7 @@ para o banco de dados de teste que iniciamos no script `test.sh`
 00. Criar usuario2
 00. Obter um token para o usuario2
 00. Criar usuario3
-00. Obter um token para o usuario3 
+00. Obter um token para o usuario3
 
 Durante o setup teremos **fixtures** do Pytest já configuradas com clientes
 HTTP para acessar a API com qualquer um dos usuários ou de forma anonima.

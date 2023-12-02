@@ -16,7 +16,7 @@ preenchido automaticamente.
 
 ### Fluxo de operação
 
-```mermaid 
+```mermaid
 graph TD
     A[Requisição POST] --> B["Obter usuários user_id e from_id"]
     B --> B1[[Chegagem de saldo e permissões]]

@@ -4,14 +4,14 @@
 
 Os casos de uso que iremos testar:
 
-- Como um usuário anonimo consigo listar os usuarios e não posso ver o saldo 
-- Como um usuário anonimo consigo listar os detalhes de um usuário sem o saldo 
-- Como usuário admin consigo atualizar o perfil de um usuário 
-- Como um usuário autenticado consigo atualziar meu próprio perfil 
-- Como um usuário autenticado não consigo atualizar o perfil de outro usuário 
+- Como um usuário anonimo consigo listar os usuarios e não posso ver o saldo
+- Como um usuário anonimo consigo listar os detalhes de um usuário sem o saldo
+- Como usuário admin consigo atualizar o perfil de um usuário
+- Como um usuário autenticado consigo atualziar meu próprio perfil
+- Como um usuário autenticado não consigo atualizar o perfil de outro usuário
 - Como usuário admin consigo transferir qualquer quantidade de pontos para todos os usuários
 - Como um usuário autenticado consigo tranferir 20 pontos para outro usuário e ver o saldo
-- Como um usuário admin consigo ver o saldo de todos os usuários 
+- Como um usuário admin consigo ver o saldo de todos os usuários
 - Como um usuário admin consigo ver todas as transações
 - Como um usuário autenticado consigo ver apenas minhas transações
 
@@ -157,7 +157,7 @@ $ ./test.sh
  ⠿ Container dundie-api-api-1  Started                                                     1.7s
 INFO  [alembic.runtime.migration] Context impl PostgresqlImpl.
 INFO  [alembic.runtime.migration] Will assume transactional DDL.
-INFO  [alembic.runtime.migration] Running stamp_revision 9aa820fb7f01 -> 
+INFO  [alembic.runtime.migration] Running stamp_revision 9aa820fb7f01 ->
 INFO  [alembic.runtime.migration] Context impl PostgresqlImpl.
 INFO  [alembic.runtime.migration] Will assume transactional DDL.
 INFO  [alembic.runtime.migration] Running upgrade  -> f39cbdb1efa7, initial
@@ -168,7 +168,7 @@ platform linux -- Python 3.10.8, pytest-7.2.0, pluggy-1.0.0 -- /usr/local/bin/py
 cachedir: .pytest_cache
 rootdir: /home/app/api, configfile: pyproject.toml
 plugins: order-1.0.1, anyio-3.6.2
-collected 10 items                                                                             
+collected 10 items
 
 tests/test_api.py::test_user_list PASSED                                                 [ 10%]
 tests/test_api.py::test_user_detail PASSED                                               [ 20%]
@@ -194,4 +194,4 @@ está o erro e corrija antes de prosseguir.
 ---
 
 Finalizamos assim a fase 1 do nosso projeto com a maior parte das funcionalidades testadas,
-vamos partir agora para a fase 2 -> 
+vamos partir agora para a fase 2 ->

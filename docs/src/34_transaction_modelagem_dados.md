@@ -66,7 +66,7 @@ Como estamos includindo relacionamentos entre os models `Transaction`, `Balance`
 - `incomes` irá retornar uma query com todos os pontos que o usuário ganhou
 - `expenses` irá retornar uma query com todos os pontos que o usuário gastou
 - E `balance` irá retornar o saldo atual do usuário, para balance estamos usando um
-  relacionamento one-to-one, por isso precisamos usar o `lazy="dynamic"` e uma 
+  relacionamento one-to-one, por isso precisamos usar o `lazy="dynamic"` e uma
   property do Python para garantir que caso o saldo seja inexistente sempre tenhamos
   um valor de retorno padrão.
 
@@ -111,7 +111,7 @@ from .transaction import Transaction, Balance
 __all__ = ["User", "SQLModel", "Transaction", "Balance"]
 ```
 
-## Criando as migrations 
+## Criando as migrations
 
 Com os models criados pediamos ao **alembic** para criar o arquivo de migration com as mudanças que precisam ser aplicadas ao Postgresql.
 
@@ -142,4 +142,3 @@ Neste momento nossas tabelas `transaction` e `balance` já devem estar criadas.
 ![](images/antares_transaction.png)
 
 Agora vamos criar a lógica de negócios que cuidará da adição de novas transações -->
-

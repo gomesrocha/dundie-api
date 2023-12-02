@@ -56,7 +56,7 @@ Agora sim podemos começar a usar o **alembic** para gerenciar as
 migrations, precisamos executar este comando dentro do shell do container.
 
 
-## Executando comandos dentro do container 
+## Executando comandos dentro do container
 
 ```admonish important "IMPORTANTE"
 Todos os comandos a partir de agora serão executados no shell dentro do container e para fazer isso usaremos sempre `docker compose exec` antes que qualquer comando.
@@ -71,10 +71,10 @@ app@c5dd026e8f92:~/api$ # este é o shell dentro do container api
 # digite exit para sair
 ```
 
-Podemos redirecionar comandos diretamente para dentro do container com `docker compose exec api [comando a ser executado]` 
+Podemos redirecionar comandos diretamente para dentro do container com `docker compose exec api [comando a ser executado]`
 
 
-## Gerando e aplicando migrations 
+## Gerando e aplicando migrations
 
 Agora para gerar um registro inicial de migration usaremos o comando `alembic revision --autogenerate` e isso será executado dentro do container conforme exemplo abaixo:
 
@@ -100,7 +100,7 @@ INFO  [alembic.runtime.migration] Running upgrade  -> ee59b23815d3, initial
 
 E neste momento a tabela será criada no Postgres e já podemos começar a interagir via SQL client ou através da classe `User` que modelamos anteriormente.
 
-```admonish tip "DICA"  
+```admonish tip "DICA"
 Pode usar um client como [https://antares-sql.app](https://antares-sql.app) para se conectar ao banco de dados, usar o **psql** na linha de comando ou abrir o shell do ipython dentro do container.
 ```
 
@@ -109,7 +109,7 @@ Pode usar um client como [https://antares-sql.app](https://antares-sql.app) para
 ```console
 $ docker compose exec api ipython
 # Agora está no ipython dentro do shell do container
-In [1]: 
+In [1]:
 ```
 
 Digite

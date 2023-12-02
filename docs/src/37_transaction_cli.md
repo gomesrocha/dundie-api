@@ -27,7 +27,7 @@ def shell():
       "add_transaction": add_transaction,
     }
 
-# Crie o comando que adiciona transactions 
+# Crie o comando que adiciona transactions
 @main.command()
 def transaction(
     username: str,
@@ -64,7 +64,7 @@ E para usar podemos fazer o seguinte  no terminal:
 ```console
 $ docker compose exec api dundie transaction jim-halpert 900
 
-          Transaction           
+          Transaction
 ┏━━━━━━━━━━━━━┳━━━━━━━━┳━━━━━━━┓
 ┃ user        ┃ before ┃ after ┃
 ┡━━━━━━━━━━━━━╇━━━━━━━━╇━━━━━━━┩
@@ -73,7 +73,7 @@ $ docker compose exec api dundie transaction jim-halpert 900
 └─────────────┴────────┴───────┘
 ```
 
-O usuário admin será ficará com saldo negativo e não tem limite de transferencia, 
+O usuário admin será ficará com saldo negativo e não tem limite de transferencia,
 assim como qualquer usuário que seja super-user.
 
 ```admonish todo "Tarefa"

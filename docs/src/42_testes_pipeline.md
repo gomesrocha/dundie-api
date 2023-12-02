@@ -67,11 +67,11 @@ docker compose exec api pytest -v -l --tb=short --maxfail=1 tests/
 docker compose down
 ```
 
-1. definimos um banco de dados diferente usando a variável `DUNDIE_DB` 
+1. definimos um banco de dados diferente usando a variável `DUNDIE_DB`
 2. iniciamos o ambiente com o docker compose
-3. esperamos 5 segundos para garantir que o banco de dados está pronto 
-4. resetamos o banco de dados 
-5. executamos as migrations para garantir que temos todas as tabelas e dados 
+3. esperamos 5 segundos para garantir que o banco de dados está pronto
+4. resetamos o banco de dados
+5. executamos as migrations para garantir que temos todas as tabelas e dados
 6. executamos os testes usando pytest
 7. finalizamos o ambiente
 

@@ -1,7 +1,7 @@
 # Erros HTTP
 
 Quando as coisas dão errado precisamos informar o cliente HTTP com o código de status correto, erros podem acontecer
-quando ocorre uma falha inesperada no servidor, quando o recurdo solicitado não existe ou quando o cliente efetua 
+quando ocorre uma falha inesperada no servidor, quando o recurdo solicitado não existe ou quando o cliente efetua
 uma requisição inválida.
 
 Vamos tentar duplicar a criação de um usuário fazendo novamente a mesma chamada POST e a mensagem que receberemos é:

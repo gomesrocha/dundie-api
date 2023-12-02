@@ -1,6 +1,6 @@
 # Expondo saldo do usuário
 
-Na listagem de usuário está faltando exibir o saldo total do usuário, 
+Na listagem de usuário está faltando exibir o saldo total do usuário,
 esta é uma informação sensivel e portanto estará disponível apenas em
 alguns casos.
 
@@ -9,7 +9,7 @@ alguns casos.
 - O usuário logado está acessando sua própria conta
 
 
-**EDITE** o arquivo `dundie/auth.py` e vamos adicionar mais uma dependencia 
+**EDITE** o arquivo `dundie/auth.py` e vamos adicionar mais uma dependencia
 baseada em autenticação.
 
 ```python
@@ -48,8 +48,8 @@ async def show_balance_field(
 ShowBalanceField = Depends(show_balance_field)
 ```
 
-Agora precisamos de um serializer contendo o campo `balance` e posteriormente no endpoint 
-usaremos este serializer como retorno apenas quando a dependência acima for satisfeita, 
+Agora precisamos de um serializer contendo o campo `balance` e posteriormente no endpoint
+usaremos este serializer como retorno apenas quando a dependência acima for satisfeita,
 usando uma abordagem chamada **conditional response model**
 
 **EDITE** `dundie/models/user.py`
@@ -71,18 +71,18 @@ class UserResponseWithBalance(UserResponse):
 
 
 Agora **EDITE** o `dundie/routes/user.py` e vamos usar a dependencia
-nos endpoints `list_users` e `get_user_by_username` e além de adicionar 
+nos endpoints `list_users` e `get_user_by_username` e além de adicionar
 a dependencia vamos alterar o `responde_model` tornando o condicional.
 
 ```python
-# IMPORTS 
+# IMPORTS
 from fastapi.encoders import jsonable_encoder
 from fastapi.responses import JSONResponse
 from pydantic import parse_obj_as
 from dundie.auth import ShowBalanceField
 from dundie.models.user import UserResponseWithBalance
 
-# list_users 
+# list_users
 
 @router.get(
     "/",
@@ -104,7 +104,7 @@ async def list_users(
         return JSONResponse(jsonable_encoder(users_with_balance))
     return users
 
-# get user by username 
+# get user by username
 @router.get(
     "/{username}/",
     response_model=UserResponse | UserResponseWithBalance,
@@ -125,7 +125,7 @@ async def get_user_by_username(
 ```
 
 Você pode testar essa funcionalidade fazendo chamadas a URL `/user/` e `/user/{username}` e verificar que
-quando o argumento `?show_balance=true` for passado na URL, o serializer de retorno irá conter o campo 
+quando o argumento `?show_balance=true` for passado na URL, o serializer de retorno irá conter o campo
 do saldo, mas isso só será feito se o usuário for o superuser, ou o próprio usuário autenticado.
 
 

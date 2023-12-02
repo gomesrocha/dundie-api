@@ -6,7 +6,7 @@ de campos e tabelas.
 Entretanto, em alguns casos precisamos criar dados para alimentar a aplicação, como por exemplo
 criar um usuário administrador para que possamos acessar a aplicação.
 
-Sempre que precisar garantir a existência de dados alimentados em tabelas do sistema usaremos 
+Sempre que precisar garantir a existência de dados alimentados em tabelas do sistema usaremos
 o conceito de **Data Migrations**.
 
 Começamos criando uma `migration` vazia para efetuarmos a operação de adição do usuário.
@@ -80,13 +80,13 @@ Essa alteração eu vou deixar para você fazer, pode ser depois, no final deste
 Agora salve o arquivo e aplique a migration.
 
 ```console
-$ docker compose exec api alembic upgrade head                   
+$ docker compose exec api alembic upgrade head
 INFO  [alembic.runtime.migration] Context impl PostgresqlImpl.
 INFO  [alembic.runtime.migration] Will assume transactional DDL.
-INFO  [alembic.runtime.migration] Running upgrade 6f4df3b5e155 -> 9aa820fb7f01, ensure_admin_user 
+INFO  [alembic.runtime.migration] Running upgrade 6f4df3b5e155 -> 9aa820fb7f01, ensure_admin_user
 ```
 
-Agora toda vez que as migrations forem aplicadas, ação que será executada sempre que houver nova atualização ou deploy, 
+Agora toda vez que as migrations forem aplicadas, ação que será executada sempre que houver nova atualização ou deploy,
 garantimos que o usuário admin será criado.
 
 E agora que temos a certeza que o `admin` vai sempre existir podemos partir para a criação de um comando na CLI -->

@@ -2,7 +2,7 @@
 
 **EDITE** `dundie/cli.py` e adicione no topo do arquivo:
 
-```python 
+```python
 from dundie.models.user import generate_username
 ```
 
@@ -41,11 +41,11 @@ A função `create_user` será exposta na CLI como o subcomando  `create-user`, 
 
 ```console
 $ docker compose exec api dundie create-user --help
-                                                    
- Usage: dundie create-user [OPTIONS] NAME EMAIL PASSWORD DEPT            
-                                                    
- Create user                                        
-                                                    
+
+ Usage: dundie create-user [OPTIONS] NAME EMAIL PASSWORD DEPT
+
+ Create user
+
 ╭─ Arguments ──────────────────────────────────────╮
 │ *    name          TEXT  [default: None]         │
 │                          [required]              │
@@ -67,11 +67,11 @@ $ docker compose exec api dundie create-user --help
 E então execute o comando para criar o usuário para o gerente **Michael Scott**
 
 ```admonish tip
-No terminal quando uma linha fica muito longa podemos adicionar 
+No terminal quando uma linha fica muito longa podemos adicionar
 uma quebra de linha com `\` e o terminal vai entender que é uma
 única linha.
 
-E no caso de argumentos com espaço como o nome "Michael Scott" precisamos 
+E no caso de argumentos com espaço como o nome "Michael Scott" precisamos
 usar aspas para o terminal entender que é um único argumento.
 ```
 
@@ -79,7 +79,7 @@ Crie o usuário:
 
 ```console
 $ docker compose exec api dundie create-user \
-"Michael Scott" mscott@dm.com boss123 management 
+"Michael Scott" mscott@dm.com boss123 management
 
 created michael-scott user
 ```
@@ -89,7 +89,7 @@ E para listar o usuário criado:
 ```console
 $ docker compose exec api dundie user-list
 
-                              dundie users                               
+                              dundie users
 ┏━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━┳━━━━━━━━━━━━┳━━━━━━━━━━━━━━━┳━━━━━━━━━━┓
 ┃ name          ┃ username      ┃ dept       ┃ email         ┃ currency ┃
 ┡━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━╇━━━━━━━━━━━━╇━━━━━━━━━━━━━━━╇━━━━━━━━━━┩

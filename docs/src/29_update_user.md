@@ -2,7 +2,7 @@
 
 Agora vamos adicionar uma rota para que o usuário possa alterar o próprio perfil.
 
-O usuário será capaz de mudar apenas os campos `bio` e `avatar`  
+O usuário será capaz de mudar apenas os campos `bio` e `avatar`
 bio será um texto e avatar a URL de uma imagem, e é claro, o usuário só
 poderá alterar o seu próprio perfil.
 
@@ -49,7 +49,7 @@ será necessário obter um token válido com uma chamada na rota `/token`
 ```bash
 curl -X 'PATCH' \
  -H 'Authorization: Bearer ...' \
- -H 'Content-Type: application/json' 
+ -H 'Content-Type: application/json'
  --data-raw '{"avatar": "https://test.com/MichaelScott.png", "bio": "I am the boss"}' \
  -k 'http://localhost:8000/user/michael-scott/'
 ```

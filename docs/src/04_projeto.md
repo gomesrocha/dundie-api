@@ -23,8 +23,8 @@ Ele se acha o melhor gerente do mundo, mas na verdade
 
 ---
 
-Este é o time de funcionários que o Michael gerencia, eles estão 
-com cara de alegres (com excessão da Angela), porém nem todos estão felizes, eles estão na verdade bastante desmotivados e começaram a reclamar das piadas sem graça do Michael e da falta de reconhecimento da empresa. 
+Este é o time de funcionários que o Michael gerencia, eles estão
+com cara de alegres (com excessão da Angela), porém nem todos estão felizes, eles estão na verdade bastante desmotivados e começaram a reclamar das piadas sem graça do Michael e da falta de reconhecimento da empresa.
 
 <figure>
   <img src="./images/people.jpg" alt="dunder" />
@@ -35,8 +35,8 @@ com cara de alegres (com excessão da Angela), porém nem todos estão felizes, 
 
 ## Projeto Dundie Rewards
 
-A Dunder Mifflin nos contratou para desenvolver uma API para o 
-novo projeto **Dundie Rewards**, que consiste em um sistema de 
+A Dunder Mifflin nos contratou para desenvolver uma API para o
+novo projeto **Dundie Rewards**, que consiste em um sistema de
 recompensas onde **cada funcionário terá uma conta** e irá **ganhar pontos**.
 
 Esses pontos poderão ser atribuidos pelo Michael quando ele achar

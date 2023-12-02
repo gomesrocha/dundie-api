@@ -20,7 +20,7 @@ engine = create_engine(
 ```
 
 Criamos um objeto `engine` que aponta para uma conexão com o banco de
-dados e para isso usamos as variáveis que lemos do `settings`, o objeto `settings` será capaz de carregar 
+dados e para isso usamos as variáveis que lemos do `settings`, o objeto `settings` será capaz de carregar
 essas variáveis do ambiente ou dos arquivos `.toml` que definimos para configuração.
 
 ```admonish note

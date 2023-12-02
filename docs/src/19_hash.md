@@ -4,7 +4,7 @@ Para fazer com que o password dos usuários seja salvo como um hash ao invés de
 vamos criar uma função para criar o hash e outra para verificar.
 
 Além disso vamos criar uma classe herdando de `str` e customizar o método `validate`
-desta forma podemos usar esta classe na definição de campo do nosso model `User` e 
+desta forma podemos usar esta classe na definição de campo do nosso model `User` e
 o pydantic vai chamar o método `validate` para transformar o valor do campo em um hash.
 
 **EDITE** Agora vamos o `dundie/security.py` e adicione alguns elementos
@@ -71,10 +71,10 @@ password: HashedPassword
 
 E no final de `dundie/models/user.py` uma função para gerar os usernames, transformando nomes completos como **Bruno Rocha** em um **slug** como **bruno-rocha**
 
-```python 
+```python
 def generate_username(name: str) -> str:
     """Generates a slug username from a name"""
     return name.lower().replace(" ", "-")
 ```
 
-Agora sim está tudo pronto para adicionarmos ao nosso CLI um comando para criar novos usuários --> 
+Agora sim está tudo pronto para adicionarmos ao nosso CLI um comando para criar novos usuários -->

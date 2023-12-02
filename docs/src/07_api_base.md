@@ -1,6 +1,6 @@
 # Criando uma API base
 
-Vamos editar o arquivo `dundie/app.py` e colocar a minima aplicação FastAPI 
+Vamos editar o arquivo `dundie/app.py` e colocar a minima aplicação FastAPI
 só para que possamos rodar o container e testar se tudo está funcionando.
 
 `dundie/app.py`

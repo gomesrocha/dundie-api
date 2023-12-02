@@ -1,6 +1,6 @@
 # Criando Endpoints de Auth
 
-Agora precisamos mapear a função de geração e validação de tokens na API, expondo a 
+Agora precisamos mapear a função de geração e validação de tokens na API, expondo a
 URL `/token` para que possamos gerar um token para um usuário.
 
 **EDITE** `dundie/routes/auth.py`

@@ -1,6 +1,6 @@
 # Injeção de dependência
 
-O FastAPI tem um excelente sistema de injeção de dependêcias, isto é util por 
+O FastAPI tem um excelente sistema de injeção de dependêcias, isto é util por
 exemplo para quando quisermos que um endpoint seja acessivel apenas por usuários
 administradores, ao invés de colocarmos lógica para verificar o nivel de permissão
 do usuário diretamente em cada view, podemos criar uma dependência.

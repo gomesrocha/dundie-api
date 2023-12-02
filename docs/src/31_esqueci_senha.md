@@ -8,7 +8,7 @@ E vamos usar esta função para gerar o token de alteração de senha.
 
 O fluxo será o seguinte:
 
-01. Usuário requisita um token de senha em 
+01. Usuário requisita um token de senha em
 :
 ```http
 POST /user/pwd_reset_token/
@@ -35,7 +35,7 @@ Response: 200 Ok
 
 ## Enviando Email
 
-Vamos começar criando uma função que irá receber alguns parametros e enviar um e-mail, 
+Vamos começar criando uma função que irá receber alguns parametros e enviar um e-mail,
 teremos uma versão da função que de fato envia um e-mail via HTTP, e teremos outra
 que apenas escreve a mensagem em um arquivo de log simulando o envio de e-mail que será
 útil para testes.
@@ -152,7 +152,7 @@ In [1]: from dundie.tasks.user import try_to_send_pwd_reset_email
 In [2]: try_to_send_pwd_reset_email("mscott@dm.com")  # wait 3 seconds
 
 In [3]: open("email.log").readlines()
-Out[3]: 
+Out[3]:
 ['--- START EMAIL mscott@dm.com ---\n',
  'From: Dundie <no-reply@dm.com>\n',
  'To: mscott@dm.com\n',
@@ -193,7 +193,7 @@ Neste endpoint estamos recebendo `email` apenas no corpo do request, ao invés d
 serializer apenas para armazenar esta informação podemos usar o serializer genérico `Body` que
 permite receber o valor de um campo diretamente no corpo do request.
 
-No caso de um endereço de em-mail pode ser interessante criar um serializer para efetuar a 
+No caso de um endereço de em-mail pode ser interessante criar um serializer para efetuar a
 verificando que o e-mail é valido, mas isso fica como melhoria para depois.
 ```
 
@@ -244,5 +244,3 @@ Por questões de privacidade nós não podemos confirmar se a operação deu cer
 
 Mas repare que ao chamar a URL precisamos esperar 3 segundos pela resposta, o ideal é que o request seja imediato e a função
 `taks.try_to_send_pwd_reset_email` seja executada em background. -->
-
-

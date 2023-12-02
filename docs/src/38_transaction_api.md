@@ -1,7 +1,7 @@
 # Transaction API
 
 Agora podemos finalmente criar o endpoint na API que vai fornecer a mesma funcionalidade,
-porém com algumas diferenças entre a implementação que fizemos no CLI, 
+porém com algumas diferenças entre a implementação que fizemos no CLI,
 no caso da API o `from_user` será o usuário que estiver autenticado.
 
 **EDITE** `dundie/routes/transaction.py` e adicione o seguinte código:
